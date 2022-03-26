@@ -288,6 +288,21 @@ def process_features(feature_df, db_path=None):
     cols['arithmetic_intensity'] = cols['arithmetic_operations'] / (
                 cols['global_memory_volume'] + cols['param_memory_volume'])
 
+
+    # GPU Specific Columns
+    cols['cuda_cores'] = df['cuda_cores'].values
+    cols['base_clock'] = df['base_clock'].values
+    cols['boost_clock'] = df['boost_clock'].values
+    cols['ram'] = df['ram'].values
+    cols['compute_capability'] = df['compute_capability'].values
+    cols['mem_interface'] = df['mem_interface'].values
+    cols['mem_interface_width'] = df['mem_interface_width'].values
+    cols['global_mem'] = df['global_mem'].values
+    cols['multiprocessor_count'] = df['multiprocessor_count'].values
+    cols['async_engine_count'] = df['async_engine_count'].values
+    cols['l2_cache_size'] = df['l2_cache_size'].values
+    cols['max_threads_per_sm'] = df['max_threads_per_sm'].values
+
     if 'time' in df.columns:
         cols['time'] = df['time']
     elif 'power' in df.columns:
